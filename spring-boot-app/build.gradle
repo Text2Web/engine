@@ -1,10 +1,10 @@
 plugins {
 	id 'org.springframework.boot' version '2.2.5.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-	id 'java'
+	id 'groovy'
 }
 
-group = 'com.hmtmcse'
+group = 'com.hmtmcse.text2web'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -23,8 +23,9 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.codehaus.groovy:groovy-templates'
+	implementation 'org.codehaus.groovy:groovy'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
