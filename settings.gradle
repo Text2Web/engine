@@ -2,3 +2,14 @@ rootProject.name = 'Text2WebEngine'
 include 'spring-boot-app'
 
 
+String modulePath = "${libraryPath}"
+File modulePathFile = file(modulePath)
+if (modulePathFile.exists()) {
+    modulePathFile.list().each { name ->
+        if (name != "empty") {
+            include(name)
+            project(":${name}").projectDir = file(modulePath + name)
+        }
+    }
+}
+

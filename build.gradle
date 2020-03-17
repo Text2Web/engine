@@ -1,3 +1,16 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven { url "https://dl.bintray.com/hmtmcse/maven/" }
+        maven { url "https://repo.maven.apache.org/maven2/" }
+    }
+    dependencies {
+        classpath 'org.ajoberstar.grgit:grgit-core:3.1.1'
+    }
+}
+
 
 group = 'com.hmtmcse'
 version = '0.0.1'
@@ -15,3 +28,47 @@ allprojects {
 }
 
 subprojects { project ->}
+
+
+
+def projectDependencies = [
+        [
+                "name": "HTML Template",
+                "destination": templatePath,
+                "dependencies" : [
+                        "templates": "https://github.com/TextToWeb/templates.git",
+                ]
+        ],
+        [
+                "name": "Other Libraries",
+                "destination": libraryPath,
+                "dependencies" : [
+                        "asciidoc": "https://github.com/hmtmcse/asciidoc.git",
+                        "java-shell-util": "https://github.com/hmtmcse/java-shell-util.git",
+                        "parser4java": "https://github.com/hmtmcse/parser4java.git",
+                        "java-file-util": "https://github.com/hmtmcse/java-file-util.git",
+                        "java-text-and-file-util": "https://github.com/hmtmcse/java-text-and-file-util.git",
+                ]
+        ]
+]
+
+task resolveDependencies {
+    doLast {
+        String destinationPath = ""
+        projectDependencies.each { Map dependencyMap ->
+            destinationPath = dependencyMap.destination
+            println("Now Cloning ${dependencyMap.name}")
+            dependencyMap.dependencies.each { name, url ->
+                println("------------------------------------------------------------------------------------------")
+                def destination = file( destinationPath +  name)
+                try{
+                    println("Cloning Project ${name}")
+                    org.ajoberstar.grgit.Grgit.clone(dir: destination, uri: url)
+                }catch(Exception e){
+                    println(e.getMessage())
+                }
+                println("------------------------------------------------------------------------------------------\n")
+            }
+        }
+    }
+}
