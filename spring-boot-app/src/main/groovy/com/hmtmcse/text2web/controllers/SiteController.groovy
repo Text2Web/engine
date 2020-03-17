@@ -1,5 +1,6 @@
 package com.hmtmcse.text2web.controllers
 
+import groovy.text.SimpleTemplateEngine
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ResponseBody
@@ -18,7 +19,7 @@ class SiteController {
 
         def binding = ["firstname":"Sam", "lastname":"Pullara", "city":"San Francisco", "month":"December", "signed":"Groovy-Dev"]
 
-        def engine = new groovy.text.SimpleTemplateEngine()
+        def engine = new SimpleTemplateEngine()
         def template = engine.createTemplate(text).make(binding)
         return template.toString()
     }
