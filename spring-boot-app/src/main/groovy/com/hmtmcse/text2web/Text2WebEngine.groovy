@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @SpringBootApplication
-class Application {
+class Text2WebEngine {
 
 	static void main(String[] args) {
-		SpringApplication.run(Application, args)
+		SpringApplication.run(Text2WebEngine, args)
 	}
 
 }
