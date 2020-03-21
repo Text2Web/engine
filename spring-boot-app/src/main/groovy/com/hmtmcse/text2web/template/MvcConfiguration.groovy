@@ -7,14 +7,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
 @EnableWebMvc
-public class MvcConfig implements WebMvcConfigurer {
+public class MvcConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler(
-                "/mia/**")
+                "/asset/**")
                 .addResourceLocations(
-                        "file:///tmp/data",
+                        "file:///W:\\text-to-web-engine\\engine\\templates\\thymeleaf-java\\asset\\",
                 );
     }
 }

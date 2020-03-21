@@ -60,6 +60,7 @@ def projectDependencies = [
                 "destination" : libraryPath,
                 "dependencies": [
                         "asciidoc"               : "https://github.com/hmtmcse/asciidoc.git",
+                        "java-tm-util"               : "https://github.com/hmtmcse/java-tm-util.git",
                         "java-console-table"     : "https://github.com/hmtmcse/java-console-table.git",
                         "java-common"            : "https://github.com/hmtmcse/java-common.git",
                         "java-shell-util"        : "https://github.com/hmtmcse/java-shell-util.git",

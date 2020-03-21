@@ -1,27 +1,24 @@
 package com.hmtmcse.text2web.controllers
 
-import groovy.text.SimpleTemplateEngine
+import com.hmtmcse.te.TextToWebHtmlEngine
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ResponseBody
+
+import javax.servlet.http.HttpServletRequest
 
 
 @Controller
 class SiteController {
 
 
-    @GetMapping("/")
+    @GetMapping("/**")
     @ResponseBody
-    String index() {
-        def text = "<html><head><title> Bismillah </title></head>"
-        text += 'Dear "$firstname $lastname",\nSo nice to meet you in <% print city %>.\nSee you in ${month},\n${signed}'
-        text += "</html>"
+    String index(HttpServletRequest request) {
+        println(request.getRequestURI())
+        TextToWebHtmlEngine templateEngine = new TextToWebHtmlEngine()
+        return templateEngine.parse()
 
-        def binding = ["firstname":"Sam", "lastname":"Pullara", "city":"San Francisco", "month":"December", "signed":"Groovy-Dev"]
-
-        def engine = new SimpleTemplateEngine()
-        def template = engine.createTemplate(text).make(binding)
-        return template.toString()
     }
 
 }
