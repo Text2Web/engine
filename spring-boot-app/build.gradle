@@ -24,6 +24,7 @@ repositories {
 
 def dependencyList = [
 		"asciidoc",
+		"java-file-util",
 ]
 
 
