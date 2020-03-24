@@ -16,16 +16,17 @@ group = 'com.hmtmcse'
 version = '0.0.1'
 
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-    jcenter()
-    maven { url "https://dl.bintray.com/hmtmcse/maven/" }
-    maven { url "https://repo.maven.apache.org/maven2/" }
-}
-
 
 allprojects {
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven { url "https://dl.bintray.com/hmtmcse/maven/" }
+        maven { url "https://repo.maven.apache.org/maven2/" }
+    }
+
     apply plugin: 'java'
     apply plugin: 'idea'
     apply plugin: 'groovy'
