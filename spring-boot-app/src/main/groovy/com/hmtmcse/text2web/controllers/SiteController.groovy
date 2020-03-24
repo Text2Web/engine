@@ -11,14 +11,11 @@ import javax.servlet.http.HttpServletRequest
 @Controller
 class SiteController {
 
-
     @GetMapping("/**")
     @ResponseBody
     String index(HttpServletRequest request) {
-        println(request.getRequestURI())
         TextToWebHtmlEngine templateEngine = new TextToWebHtmlEngine()
-        return templateEngine.parse()
-
+        return templateEngine.getContentByURL(request.getRequestURI())
     }
 
 }
