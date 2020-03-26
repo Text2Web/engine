@@ -14,7 +14,9 @@ class Text2WebEngine  implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		Config config = ConfigLoader.getConfig()
-		registry.addResourceHandler("/asset/**").addResourceLocations(FDUtil.concatPathToURI(config.template, "asset"));
+		registry.addResourceHandler("/asset/**")
+				.addResourceLocations(FDUtil.concatPathToURI(config.template, "asset"))
+
 	}
 
 	static void main(String[] args) {
