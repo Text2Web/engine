@@ -36,6 +36,7 @@ dependencies {
 		}
 	}
 
+	implementation 'org.freemarker:freemarker:2.3.30'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.codehaus.groovy:groovy'
 	compileOnly 'org.projectlombok:lombok'
