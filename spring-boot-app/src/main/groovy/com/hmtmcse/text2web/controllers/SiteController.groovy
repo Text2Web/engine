@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest
 @Controller
 class SiteController {
 
-    @RequestMapping("/{start:^(?!asset|static-files).*}/**")
+    @RequestMapping("/{start:^(?!asset|static-files|internal-asset|admin).*}/**")
     @ResponseBody
     String startWith(@PathVariable("start") String start, HttpServletRequest request) {
         TextToWebHtmlEngine templateEngine = new TextToWebHtmlEngine()
