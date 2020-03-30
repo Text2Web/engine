@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody
 
 
 @Controller
-@RequestMapping("/manage")
+@RequestMapping("/manage-text2web")
 class ManagementController {
 
     @Autowired
