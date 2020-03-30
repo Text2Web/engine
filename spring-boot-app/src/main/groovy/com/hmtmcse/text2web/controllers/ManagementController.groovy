@@ -21,4 +21,34 @@ class ManagementController {
         return managementService.index()
     }
 
+    @RequestMapping(value = ["/configure"])
+    @ResponseBody
+    String configure() {
+        return managementService.configure()
+    }
+
+    @RequestMapping(value = ["/descriptor-report"])
+    @ResponseBody
+    String descriptorReport() {
+        return managementService.descriptorReport()
+    }
+
+    @RequestMapping(value = ["/document-report"])
+    @ResponseBody
+    String documentReport() {
+        return managementService.documentReport()
+    }
+
+    @RequestMapping(value = ["/export-html"])
+    @ResponseBody
+    String exportHtml() {
+        return managementService.exportHtml()
+    }
+
+    @RequestMapping(value = ["/clear-html-vcs"])
+    @ResponseBody
+    String clearHtmlVcs() {
+        return managementService.clearHtmlVcs()
+    }
+
 }

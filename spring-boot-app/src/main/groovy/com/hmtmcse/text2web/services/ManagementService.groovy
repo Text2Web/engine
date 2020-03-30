@@ -17,12 +17,30 @@ class ManagementService {
     }
 
     private String render(String templateName) {
-        return freemarkerTemplate.processTextClassPath("/templates/", templateName)
+        return freemarkerTemplate.processTextClassPath("/templates/", templateName + ".ftl")
     }
 
     String index() {
-        return render("index.html")
+        return render("index")
     }
 
+    String configure() {
+        return render("index")
+    }
 
+    String descriptorReport() {
+        return render("index")
+    }
+
+    String documentReport() {
+        return render("index")
+    }
+
+    String exportHtml() {
+        return render("index")
+    }
+
+    String clearHtmlVcs() {
+        return render("index")
+    }
 }
