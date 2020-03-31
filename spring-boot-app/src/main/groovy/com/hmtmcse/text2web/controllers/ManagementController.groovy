@@ -1,10 +1,10 @@
 package com.hmtmcse.text2web.controllers
 
-import com.hmtmcse.te.FreemarkerTemplate
 import com.hmtmcse.text2web.services.ManagementService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
 
 
@@ -18,18 +18,24 @@ class ManagementController {
     @RequestMapping(value = ["", "/"])
     @ResponseBody
     String bismillah() {
-        return managementService.index()
+        return managementService.dashboard()
     }
 
-    @RequestMapping(value = ["/configure"])
+    @RequestMapping(value = ["/settings"])
     @ResponseBody
     String configure() {
-        return managementService.configure()
+        return managementService.settings()
     }
 
     @RequestMapping(value = ["/descriptor-report"])
     @ResponseBody
     String descriptorReport() {
+        return managementService.descriptorReport()
+    }
+
+    @RequestMapping(value = ["/merge-descriptor"], method = RequestMethod.POST)
+    @ResponseBody
+    String mergeDescriptor() {
         return managementService.descriptorReport()
     }
 
@@ -39,7 +45,7 @@ class ManagementController {
         return managementService.documentReport()
     }
 
-    @RequestMapping(value = ["/export-html"])
+    @RequestMapping(value = ["/export-html"],  method = RequestMethod.POST)
     @ResponseBody
     String exportHtml() {
         return managementService.exportHtml()

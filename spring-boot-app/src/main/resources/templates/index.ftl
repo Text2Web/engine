@@ -2,22 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Administrator</title>
+    <title>Dashboard</title>
     <#include "common/common-header.ftl"/>
 </head>
 <body>
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Text2Web</a>
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Sign out</a>
-        </li>
-    </ul>
-</nav>
+
+<#include "common/header.ftl" />
 
 <div class="container-fluid">
     <div class="row">
 
+        <#assign activeNav = "dashboard">
         <#include "common/left-nav.ftl" />
 
 

@@ -17,23 +17,24 @@ class ManagementService {
     }
 
     private String render(String templateName) {
-        return freemarkerTemplate.processTextClassPath("/templates/", templateName + ".ftl")
+//        return freemarkerTemplate.processTextClassPath("/templates/", templateName + ".ftl")
+        return freemarkerTemplate.processTextWithTemplateDir("W:\\text-to-web-engine\\engine\\spring-boot-app\\src\\main\\resources\\templates\\", templateName + ".ftl")
     }
 
-    String index() {
-        return render("index")
+    String dashboard() {
+        return render("dashboard")
     }
 
-    String configure() {
-        return render("index")
+    String settings() {
+        return render("settings")
     }
 
     String descriptorReport() {
-        return render("index")
+        return render("descriptor-report")
     }
 
     String documentReport() {
-        return render("index")
+        return render("document-report")
     }
 
     String exportHtml() {
