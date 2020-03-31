@@ -21,6 +21,37 @@
                 <h1 class="h2">Descriptor Report</h1>
             </div>
 
+            <#if reports?has_content>
+                <form action="/manage-text2web/merge-descriptor" method="post">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Merge</th>
+                                <th>Topic Name</th>
+                                <th>Topic Identifier</th>
+                                <th>Path</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tbody>
+
+                            <#list reports as key, report>
+                                <tr>
+                                    <td><input type="checkbox" <#if report.isMerge>checked</#if>/></td>
+                                    <td>${ report.name }</td>
+                                    <td>ipsum</td>
+                                    <td>dolor</td>
+                                </tr>
+                            </#list>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Merge</button>
+                </form>
+            <#else>
+                <h3 class="h3 text-center">Reports not available</h3>
+            </#if>
 
         </main>
     </div>

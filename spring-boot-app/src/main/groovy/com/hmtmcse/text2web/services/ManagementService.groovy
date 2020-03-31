@@ -1,6 +1,7 @@
 package com.hmtmcse.text2web.services
 
 import com.hmtmcse.te.FreemarkerTemplate
+import com.hmtmcse.texttoweb.data.ProcessRequest
 import com.hmtmcse.texttoweb.processor.TextToWebProcessor
 import org.springframework.stereotype.Service
 
@@ -8,17 +9,15 @@ import org.springframework.stereotype.Service
 @Service
 class ManagementService {
 
-    private TextToWebProcessor textToWebProcessor
     private FreemarkerTemplate freemarkerTemplate
 
     ManagementService() {
-        textToWebProcessor = new TextToWebProcessor()
         freemarkerTemplate = new FreemarkerTemplate()
     }
 
-    private String render(String templateName) {
-//        return freemarkerTemplate.processTextClassPath("/templates/", templateName + ".ftl")
-        return freemarkerTemplate.processTextWithTemplateDir("W:\\text-to-web-engine\\engine\\spring-boot-app\\src\\main\\resources\\templates\\", templateName + ".ftl")
+    private String render(String templateName, Map<String, Object> params = [:]) {
+//        return freemarkerTemplate.processTextClassPath("/templates/", templateName + ".ftl", params)
+        return freemarkerTemplate.processTextWithTemplateDir("W:\\text-to-web-engine\\engine\\spring-boot-app\\src\\main\\resources\\templates\\", templateName + ".ftl", params)
     }
 
     String dashboard() {
@@ -30,7 +29,9 @@ class ManagementService {
     }
 
     String descriptorReport() {
-        return render("descriptor-report")
+        ProcessRequest processRequest = new ProcessRequest()
+        TextToWebProcessor textToWebProcessor = new TextToWebProcessor(processRequest)
+        return render("descriptor-report", [reports: textToWebProcessor.manipulateDescriptorOutline()])
     }
 
     String documentReport() {
