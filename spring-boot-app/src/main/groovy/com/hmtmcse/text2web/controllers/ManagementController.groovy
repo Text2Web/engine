@@ -2,18 +2,15 @@ package com.hmtmcse.text2web.controllers
 
 import com.hmtmcse.text2web.data.MergeDescriptor
 import com.hmtmcse.text2web.services.ManagementService
-import com.hmtmcse.texttoweb.data.ProcessRequest
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
-import org.springframework.validation.BindingResult
-import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
 
 
 @Controller
-@RequestMapping("/manage-text2web")
+@RequestMapping("/text2web-manage")
 class ManagementController {
 
     @Autowired

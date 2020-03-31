@@ -45,4 +45,8 @@ class ManagementService {
     String clearHtmlVcs() {
         return render("index")
     }
+
+    String page404() {
+        return render("page404")
+    }
 }

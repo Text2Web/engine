@@ -8,32 +8,31 @@
             </#if>
 
             <li class="nav-item">
-                <a class="nav-link <#if currentActive == "dashboard" >active</#if>" href="/manage-text2web">
+                <a class="nav-link <#if currentActive == "dashboard" >active</#if>" href="/text2web-manage">
                     Dashboard
                 </a>
             </li>
 
-
             <li class="nav-item">
-                <a class="nav-link <#if currentActive == "descriptor-report" >active</#if>" href="/manage-text2web/descriptor-report">
+                <a class="nav-link <#if currentActive == "descriptor-report" >active</#if>" href="/text2web-manage/descriptor-report">
                     Descriptor Report
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link <#if currentActive == "document-report" >active</#if>" href="/manage-text2web/document-report">
+                <a class="nav-link <#if currentActive == "document-report" >active</#if>" href="/text2web-manage/document-report">
                     Document Report
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link <#if currentActive == "clear-html-vcs" >active</#if>" href="/manage-text2web/clear-html-vcs">
+                <a class="nav-link <#if currentActive == "clear-html-vcs" >active</#if>" href="/text2web-manage/clear-html-vcs">
                     Clean HTML VCS
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link <#if currentActive == "settings" >active</#if>" href="/manage-text2web/settings">
+                <a class="nav-link <#if currentActive == "settings" >active</#if>" href="/text2web-manage/settings">
                     Settings
                 </a>
             </li>
