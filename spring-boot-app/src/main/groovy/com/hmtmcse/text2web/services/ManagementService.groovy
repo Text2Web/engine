@@ -1,7 +1,9 @@
 package com.hmtmcse.text2web.services
 
 import com.hmtmcse.te.FreemarkerTemplate
+import com.hmtmcse.text2web.data.MergeDescriptor
 import com.hmtmcse.texttoweb.data.ProcessRequest
+import com.hmtmcse.texttoweb.data.ProcessTask
 import com.hmtmcse.texttoweb.processor.TextToWebProcessor
 import org.springframework.stereotype.Service
 
@@ -28,11 +30,28 @@ class ManagementService {
         return render("settings")
     }
 
-    String descriptorReport() {
+    String descriptorReport(String flash = null) {
         ProcessRequest processRequest = new ProcessRequest()
         TextToWebProcessor textToWebProcessor = new TextToWebProcessor(processRequest)
-        return render("descriptor-report", [reports: textToWebProcessor.manipulateDescriptorOutline()])
+        return render("descriptor-report", [reports: textToWebProcessor.manipulateDescriptorOutline(), flash: flash])
     }
+
+    String mergeDescriptor(MergeDescriptor mergeDescriptor) {
+        ProcessRequest processRequest = new ProcessRequest()
+        processRequest.task = ProcessTask.MERGE
+        processRequest.mergeData = mergeDescriptor.mergeData ?: [:]
+        try {
+            TextToWebProcessor textToWebProcessor = new TextToWebProcessor(processRequest)
+            textToWebProcessor.manipulateDescriptorOutline()
+            if (!processRequest.mergeData || processRequest.mergeData.count { key, value -> value.isMerge } == 0) {
+                return "Nothing for update!."
+            }
+        } catch (Exception e) {
+            return e.getMessage()
+        }
+        return "Successfully Merge Descriptor"
+    }
+
 
     String documentReport() {
         return render("document-report")
