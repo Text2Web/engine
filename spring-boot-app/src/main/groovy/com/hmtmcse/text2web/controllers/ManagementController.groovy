@@ -39,7 +39,7 @@ class ManagementController {
 
     @RequestMapping(value = ["/merge-descriptor"], method = RequestMethod.POST)
     @ResponseBody
-    String mergeDescriptor(MergeDescriptor mergeDescriptor, BindingResult bindingResult) {
+    String mergeDescriptor(MergeDescriptor mergeDescriptor) {
         return managementService.descriptorReport()
     }
 

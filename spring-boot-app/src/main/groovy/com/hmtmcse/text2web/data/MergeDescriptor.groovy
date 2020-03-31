@@ -1,29 +1,17 @@
 package com.hmtmcse.text2web.data
 
-import com.hmtmcse.texttoweb.data.ProcessRequest
 import com.hmtmcse.texttoweb.data.TopicMergeReport
-import lombok.Data
-import lombok.experimental.Accessors
 
 
 class MergeDescriptor {
 
-    String name
-    public List<TopicMergeReport> mergeDataList = []
+    public Map<String, TopicMergeReport> mergeData = [:]
 
-    String getName() {
-        return name
+    Map<String, TopicMergeReport> getMergeData() {
+        return mergeData
     }
 
-    void setName(String name) {
-        this.name = name
-    }
-
-    List<TopicMergeReport> getMergeDataList() {
-        return mergeDataList
-    }
-
-    void setMergeDataList(List<TopicMergeReport> mergeDataList) {
-        this.mergeDataList = mergeDataList
+    void setMergeData(Map<String, TopicMergeReport> mergeData) {
+        this.mergeData = mergeData
     }
 }

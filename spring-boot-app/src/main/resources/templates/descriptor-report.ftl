@@ -35,13 +35,20 @@
                             </thead>
                             <tbody>
                             <tbody>
-
                             <#list reports as key, report>
                                 <tr>
-                                    <td class="text-center"><input class="form-check-input" type="checkbox" <#if report.isMerge>checked</#if>/></td>
-                                    <td><input class="form-control" name="mergeDataList[1].name" value="${ report.name }"/></td>
-                                    <td>${ report.topicKey?default("") }</td>
-                                    <td>${ report.relativePath?default("") }</td>
+                                    <td class="text-center">
+                                        <input type="hidden"  name="mergeData[${key}].isMerge" value="false"/>
+                                        <input class="form-check-input" type="checkbox" name="mergeData[${key}].isMerge" <#if report.isMerge>checked</#if>/>
+                                    </td>
+                                    <#if report.isEditable>
+                                        <td><input type="text" class="form-control" name="mergeData[${key}].name" value="${ report.name }"/></td>
+                                        <#else>
+                                        <td>${ report.name?default("") }</td>
+                                    </#if>
+
+                                    <td>${ report.topicKey?default("") } <input type="hidden"  name="mergeData[${key}].topicKey" value="${ report.topicKey?default("") }"/></td>
+                                    <td>${ report.relativePath?default("") } <input type="hidden"  name="mergeData[${key}].relativePath" value="${ report.relativePath?default("") }"/></td>
                                 </tr>
                             </#list>
                             </tbody>
