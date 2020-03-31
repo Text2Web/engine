@@ -27,9 +27,9 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>Merge</th>
-                                <th>Topic Name</th>
-                                <th>Topic Identifier</th>
+                                <th class="text-center">Merge</th>
+                                <th>Navigation Name</th>
+                                <th>Navigation Identifier</th>
                                 <th>Path</th>
                             </tr>
                             </thead>
@@ -38,10 +38,10 @@
 
                             <#list reports as key, report>
                                 <tr>
-                                    <td><input type="checkbox" <#if report.isMerge>checked</#if>/></td>
-                                    <td>${ report.name }</td>
-                                    <td>ipsum</td>
-                                    <td>dolor</td>
+                                    <td class="text-center"><input class="form-check-input" type="checkbox" <#if report.isMerge>checked</#if>/></td>
+                                    <td><input class="form-control" name="mergeDataList[1].name" value="${ report.name }"/></td>
+                                    <td>${ report.topicKey?default("") }</td>
+                                    <td>${ report.relativePath?default("") }</td>
                                 </tr>
                             </#list>
                             </tbody>
