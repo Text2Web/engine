@@ -1,5 +1,6 @@
 package com.hmtmcse.text2web
 
+import com.hmtmcse.common.AsciiDocConstant
 import com.hmtmcse.fileutil.fd.FDUtil
 import com.hmtmcse.texttoweb.Config
 import com.hmtmcse.texttoweb.common.ConfigLoader
@@ -15,11 +16,11 @@ class Text2WebEngine  implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		Config config = ConfigLoader.getConfig()
 		registry
-				.addResourceHandler("/asset/**", "/static-files/**", "/internal-asset/**")
+				.addResourceHandler("/${AsciiDocConstant.asset}/**".toString(), "/${AsciiDocConstant.asset}/**".toString(), "/${AsciiDocConstant.asset}/**".toString())
 				.addResourceLocations(
-						FDUtil.concatPathToURI(config.template, "asset"),
-						FDUtil.concatPathToURI(config.source, "static-files"),
-						"classpath:/internal-asset/"
+						FDUtil.concatPathToURI(config.template, AsciiDocConstant.asset),
+						FDUtil.concatPathToURI(config.source, AsciiDocConstant.staticFiles),
+						"classpath:/${AsciiDocConstant.asset}/".toString()
 				)
 	}
 
