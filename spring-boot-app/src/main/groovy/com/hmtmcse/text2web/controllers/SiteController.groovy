@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest
 @Controller
 class SiteController {
 
-    @RequestMapping("/{start:^(?!asset|static-files|internal-asset|text2web-manage|text2web-system).*}/**")
+    @RequestMapping("/{start:^(?!asset|static-files|internal-asset|text2web-manage|text2web-system|favicon\\.ico).*}/**")
     @ResponseBody
     String startWith(@PathVariable("start") String start, HttpServletRequest request) {
         TextToWebHtmlEngine templateEngine = new TextToWebHtmlEngine()
