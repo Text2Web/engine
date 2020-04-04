@@ -16,11 +16,11 @@ class Text2WebEngine  implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		Config config = ConfigLoader.getConfig()
 		registry
-				.addResourceHandler("/${AsciiDocConstant.asset}/**".toString(), "/${AsciiDocConstant.asset}/**".toString(), "/${AsciiDocConstant.asset}/**".toString())
+				.addResourceHandler("/${AsciiDocConstant.asset}/**".toString(), "/${AsciiDocConstant.staticFiles}/**".toString(), "/${AsciiDocConstant.internalAsset}/**".toString())
 				.addResourceLocations(
 						FDUtil.concatPathToURI(config.template, AsciiDocConstant.asset),
 						FDUtil.concatPathToURI(config.source, AsciiDocConstant.staticFiles),
-						"classpath:/${AsciiDocConstant.asset}/".toString()
+						"classpath:/${AsciiDocConstant.internalAsset}/".toString()
 				)
 	}
 
