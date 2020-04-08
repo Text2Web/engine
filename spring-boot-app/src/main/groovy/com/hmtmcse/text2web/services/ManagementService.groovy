@@ -19,7 +19,7 @@ class ManagementService {
 
     private String render(String templateName, Map<String, Object> params = [:]) {
 //        return freemarkerTemplate.processTextClassPath("/templates/", templateName + ".ftl", params)
-        return freemarkerTemplate.processTextWithTemplateDir("D:\\touhid\\engine\\spring-boot-app\\src\\main\\resources\\templates\\", templateName + ".ftl", params)
+        return freemarkerTemplate.processTextWithTemplateDir("W:\\engine\\spring-boot-app\\src\\main\\resources\\templates\\", templateName + ".ftl", params)
     }
 
     String dashboard() {
@@ -58,7 +58,15 @@ class ManagementService {
     }
 
     String exportHtml() {
-        return render("index")
+        ProcessRequest processRequest = new ProcessRequest()
+        processRequest.task = ProcessTask.MERGE
+        try {
+            TextToWebProcessor textToWebProcessor = new TextToWebProcessor(processRequest)
+            textToWebProcessor.exportToHtml()
+        } catch (Exception e) {
+            return e.getMessage()
+        }
+        return "Successfully Exported Html"
     }
 
     String clearHtmlVcs() {
