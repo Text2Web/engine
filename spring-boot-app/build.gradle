@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.hmtmcse.text2web'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = '11'
 
 configurations {
@@ -16,6 +16,10 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
+}
+
+bootJar {
+	archiveFileName = "Text2Web.${archiveExtension.get()}"
 }
 
 repositories {
