@@ -18,8 +18,7 @@ class ManagementService {
     }
 
     private String render(String templateName, Map<String, Object> params = [:]) {
-//        return freemarkerTemplate.processTextClassPath("/templates/", templateName + ".ftl", params)
-        return freemarkerTemplate.processTextWithTemplateDir("W:\\engine\\spring-boot-app\\src\\main\\resources\\templates\\", templateName + ".ftl", params)
+        return freemarkerTemplate.processTextClassPath("/templates/", templateName + ".ftl", params)
     }
 
     String dashboard() {
