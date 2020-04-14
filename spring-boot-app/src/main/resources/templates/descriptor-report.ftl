@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Descriptor Report</title>
     <#include "common/common-header.ftl"/>
+    <script src="/internal-asset/js/descriptor.js"></script>
 </head>
 <body>
 
@@ -28,7 +29,10 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th class="text-center">Merge</th>
+                                <th class="text-center">
+                                    <input class="form-check-input" type="checkbox" checked id="check-all"/>
+                                    Merge
+                                </th>
                                 <th>Navigation Name</th>
                                 <th>Navigation Identifier</th>
                                 <th>Path</th>
@@ -39,7 +43,7 @@
                             <#list reports as key, report>
                                 <tr>
                                     <td class="text-center">
-                                        <input class="form-check-input" type="checkbox" name="mergeData[${key}].isMerge" <#if report.isMerge>checked</#if>/>
+                                        <input class="form-check-input is-allowed-to-merge" type="checkbox" name="mergeData[${key}].isMerge" <#if report.isMerge>checked</#if>/>
                                         <input type="hidden"  name="mergeData[${key}].isMerge" value="false"/>
                                     </td>
                                     <#if report.isEditable>
