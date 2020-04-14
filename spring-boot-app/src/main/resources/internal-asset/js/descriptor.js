@@ -13,6 +13,12 @@ jQuery(document).ready(function () {
         }
     })
 
+    let inputBox = jQuery(".change-in-input")
+    inputBox.on("change", function () {
+        $(this).closest("tr").find(".is-allowed-to-merge").prop("checked", true)
+    })
+
+
     function checkUncheck(isChecked) {
         individualCheck.each(function () {
             $(this).prop("checked", isChecked)

@@ -47,7 +47,7 @@
                                         <input type="hidden"  name="mergeData[${key}].isMerge" value="false"/>
                                     </td>
                                     <#if report.isEditable>
-                                        <td><input type="text" class="form-control" name="mergeData[${key}].name" value="${ report.name }"/></td>
+                                        <td><input type="text" class="form-control change-in-input" name="mergeData[${key}].name" value="${ report.name }"/></td>
                                         <#else>
                                         <td>${ report.name?default("") }</td>
                                     </#if>
