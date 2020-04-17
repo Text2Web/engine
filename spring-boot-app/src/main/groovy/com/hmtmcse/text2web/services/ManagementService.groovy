@@ -1,11 +1,13 @@
 package com.hmtmcse.text2web.services
 
+import com.hmtmcse.data.SeoEditData
 import com.hmtmcse.te.FreemarkerTemplate
 import com.hmtmcse.text2web.data.MergeDescriptor
 import com.hmtmcse.texttoweb.Seo
 import com.hmtmcse.texttoweb.Tag
 import com.hmtmcse.texttoweb.data.ProcessRequest
 import com.hmtmcse.texttoweb.data.ProcessTask
+import com.hmtmcse.texttoweb.processor.SeoProcessor
 import com.hmtmcse.texttoweb.processor.TextToWebProcessor
 import org.springframework.stereotype.Service
 
@@ -78,18 +80,13 @@ class ManagementService {
         return render("page404")
     }
 
-    String loadSeoSettings() {
-        Seo seo = new Seo()
-        Tag tag = new Tag()
-        tag.name = "meta"
-        tag.addAttrs("name", "description")
-        tag.addAttrs("content", "description")
-        seo.addTags(tag)
-
-        return render("load-seo-settings", [seo: seo])
+    String loadSeoSettings(String url) {
+        SeoProcessor seoProcessor = new SeoProcessor()
+        return render("load-seo-settings", [seo: seoProcessor.getSeoSetting(url)])
     }
 
-    String updateSeoSettings() {
-        return render("index")
+    String updateSeoSettings(SeoEditData seoEditData) {
+        SeoProcessor seoProcessor = new SeoProcessor()
+        return seoProcessor.updateSeoSetting(seoEditData)
     }
 }

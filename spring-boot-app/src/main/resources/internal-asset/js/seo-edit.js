@@ -7,6 +7,7 @@ function updateInputCount(input) {
 
 function initTagEditorTextCounter(targetForm) {
     let textCountInput = targetForm.find(".text-count")
+    textCountInput.off();
     textCountInput.on("change paste keyup", function () {
         updateInputCount($(this))
     })
@@ -17,15 +18,22 @@ function initTagEditorTextCounter(targetForm) {
 }
 
 function initFormSubmit(modal) {
-    modal.find("#update-form").on("click", function () {
+    let updateForm = modal.find("#update-form")
+    updateForm.off();
+    updateForm.on("click", function () {
         let form = modal.find("#meta-tag-editor");
         jQuery.ajax(
             {
                 url: "/text2web-manage/update-seo-setting",
                 data: form.serialize(),
+                dataType: "json",
                 method: "post",
                 success: function (result) {
-                    console.log(result)
+                    if (result.status === "success") {
+                        modal.modal('hide')
+                        let url = modal.attr("data-url");
+                        window.location = url
+                    }
                 }
             }
         );
@@ -43,9 +51,11 @@ jQuery(document).ready(function () {
     });
 
     modal.on('show.bs.modal', function (e) {
+        let url = modal.attr("data-url");
         jQuery.ajax(
             {
                 url: "/text2web-manage/load-seo-setting",
+                data: {url: url},
                 success: function (result) {
                     let editor = modal.find("#seo-editor");
                     editor.html("")

@@ -1,8 +1,14 @@
 <div class="container-fluid">
     <form id="meta-tag-editor" method="post" action="/text2web-manage/update-seo-setting">
+        <input type="hidden" name="url" value="${seo.url}">
         <div class="form-group">
             <label>Page Title</label>
-            <input type="tel" name="title" class="form-control text-count">
+            <input type="text" name="title" class="form-control text-count" value="${seo.title}">
+            <small class="form-text text-muted text-count-result" >Total Character: 0</small>
+        </div>
+        <div class="form-group">
+            <label>Navigation Name</label>
+            <input type="text" name="navName" class="form-control text-count" value="${seo.navName}">
             <small class="form-text text-muted text-count-result" >Total Character: 0</small>
         </div>
         <#list seo.tags as tag>

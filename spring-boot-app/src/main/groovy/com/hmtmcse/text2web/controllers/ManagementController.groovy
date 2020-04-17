@@ -1,5 +1,6 @@
 package com.hmtmcse.text2web.controllers
 
+import com.hmtmcse.data.SeoEditData
 import com.hmtmcse.text2web.data.MergeDescriptor
 import com.hmtmcse.text2web.services.ManagementService
 import com.hmtmcse.texttoweb.Seo
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
@@ -65,14 +67,14 @@ class ManagementController {
 
     @RequestMapping(value = ["/load-seo-setting"])
     @ResponseBody
-    String loadSeoSetting() {
-        return managementService.loadSeoSettings()
+    String loadSeoSetting(@RequestParam String url) {
+        return managementService.loadSeoSettings(url)
     }
 
     @RequestMapping(value = ["/update-seo-setting"], method = RequestMethod.POST)
     @ResponseBody
-    String updateSeoSetting(Seo seo, HttpServletRequest request) {
-        return managementService.clearHtmlVcs()
+    String updateSeoSetting(SeoEditData seo) {
+        return managementService.updateSeoSettings(seo)
     }
 
 }
