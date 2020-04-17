@@ -33,6 +33,7 @@
                                     <input class="form-check-input" type="checkbox" checked id="check-all"/>
                                     Merge
                                 </th>
+                                <th>Descriptor Name</th>
                                 <th>Navigation Name</th>
                                 <th>Navigation Identifier</th>
                                 <th>Path</th>
@@ -46,6 +47,7 @@
                                         <input class="form-check-input is-allowed-to-merge" type="checkbox" name="mergeData[${key}].isMerge" <#if report.isMerge>checked</#if>/>
                                         <input type="hidden"  name="mergeData[${key}].isMerge" value="false"/>
                                     </td>
+                                    <td>${ report.descriptorName?default("") }</td>
                                     <#if report.isEditable>
                                         <td><input type="text" class="form-control change-in-input" name="mergeData[${key}].name" value="${ report.name }"/></td>
                                         <#else>
