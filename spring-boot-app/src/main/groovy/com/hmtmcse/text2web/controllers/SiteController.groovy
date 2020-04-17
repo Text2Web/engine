@@ -1,6 +1,7 @@
 package com.hmtmcse.text2web.controllers
 
 import com.hmtmcse.te.TextToWebHtmlEngine
+import com.hmtmcse.te.data.TextToWebEngineConfig
 import com.hmtmcse.text2web.services.SiteService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -21,14 +22,18 @@ class SiteController {
     @ResponseBody
     String startWith(@PathVariable("start") String start, HttpServletRequest request) {
         TextToWebHtmlEngine templateEngine = new TextToWebHtmlEngine()
-        return templateEngine.getContentByURL(request.getRequestURI())
+        TextToWebEngineConfig config = new TextToWebEngineConfig()
+        config.isDevelopmentMode = true
+        return templateEngine.getContentByURL(request.getRequestURI(), config)
     }
 
     @RequestMapping("/")
     @ResponseBody
     String index(HttpServletRequest request) {
         TextToWebHtmlEngine templateEngine = new TextToWebHtmlEngine()
-        return templateEngine.getContentByURL(request.getRequestURI())
+        TextToWebEngineConfig config = new TextToWebEngineConfig()
+        config.isDevelopmentMode = true
+        return templateEngine.getContentByURL(request.getRequestURI(), config)
     }
 
     @RequestMapping("/data-search")
