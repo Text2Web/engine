@@ -2,6 +2,7 @@ package com.hmtmcse.text2web.services
 
 import com.hmtmcse.te.FreemarkerTemplate
 import com.hmtmcse.text2web.data.MergeDescriptor
+import com.hmtmcse.texttoweb.Seo
 import com.hmtmcse.texttoweb.Tag
 import com.hmtmcse.texttoweb.data.ProcessRequest
 import com.hmtmcse.texttoweb.data.ProcessTask
@@ -78,14 +79,14 @@ class ManagementService {
     }
 
     String loadSeoSettings() {
-        List<Tag> tags = new ArrayList<>()
+        Seo seo = new Seo()
         Tag tag = new Tag()
         tag.name = "meta"
         tag.addAttrs("name", "description")
         tag.addAttrs("content", "description")
-        tags.add(tag)
+        seo.addTags(tag)
 
-        return render("load-seo-settings", [tags: tags])
+        return render("load-seo-settings", [seo: seo])
     }
 
     String updateSeoSettings() {

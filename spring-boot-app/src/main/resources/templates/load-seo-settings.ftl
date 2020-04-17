@@ -5,7 +5,7 @@
             <input type="tel" name="title" class="form-control text-count">
             <small class="form-text text-muted text-count-result" >Total Character: 0</small>
         </div>
-        <#list tags as tag>
+        <#list seo.tags as tag>
             <div class="card" style="margin-top: 5px">
                 <div class="card-body">
                     <h5 class="card-title">Tag Name: <strong>${tag.name}</strong></h5>
