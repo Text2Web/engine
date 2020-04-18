@@ -21,21 +21,21 @@
 
             <li class="nav-item">
                 <a class="nav-link <#if currentActive == "document-report" >active</#if>" href="/text2web-manage/document-report">
-                    Document Report
+                    Export Document
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link <#if currentActive == "clear-html-vcs" >active</#if>" href="/text2web-manage/clear-html-vcs">
-                    Clean HTML VCS
-                </a>
-            </li>
+<#--            <li class="nav-item">-->
+<#--                <a class="nav-link <#if currentActive == "clear-html-vcs" >active</#if>" href="/text2web-manage/clear-html-vcs">-->
+<#--                    Clean HTML VCS-->
+<#--                </a>-->
+<#--            </li>-->
 
-            <li class="nav-item">
-                <a class="nav-link <#if currentActive == "settings" >active</#if>" href="/text2web-manage/settings">
-                    Settings
-                </a>
-            </li>
+<#--            <li class="nav-item">-->
+<#--                <a class="nav-link <#if currentActive == "settings" >active</#if>" href="/text2web-manage/settings">-->
+<#--                    Settings-->
+<#--                </a>-->
+<#--            </li>-->
 
         </ul>
     </div>

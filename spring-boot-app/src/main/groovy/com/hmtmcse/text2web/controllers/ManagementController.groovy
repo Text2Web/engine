@@ -47,10 +47,10 @@ class ManagementController {
         return "redirect:/text2web-manage/descriptor-report"
     }
 
-    @RequestMapping(value = ["/document-report"])
+    @RequestMapping(value = ["/document-export"])
     @ResponseBody
-    String documentReport() {
-        return managementService.documentReport()
+    String documentExport() {
+        return managementService.documentExport()
     }
 
     @RequestMapping(value = ["/export-html"],  method = RequestMethod.POST)

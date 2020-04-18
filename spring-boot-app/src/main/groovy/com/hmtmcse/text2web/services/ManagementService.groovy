@@ -7,6 +7,7 @@ import com.hmtmcse.texttoweb.Seo
 import com.hmtmcse.texttoweb.Tag
 import com.hmtmcse.texttoweb.data.ProcessRequest
 import com.hmtmcse.texttoweb.data.ProcessTask
+import com.hmtmcse.texttoweb.data.TopicMergeReport
 import com.hmtmcse.texttoweb.processor.SeoProcessor
 import com.hmtmcse.texttoweb.processor.TextToWebProcessor
 import org.springframework.stereotype.Service
@@ -56,8 +57,11 @@ class ManagementService {
     }
 
 
-    String documentReport() {
-        return render("document-report")
+    String documentExport() {
+        ProcessRequest processRequest = new ProcessRequest()
+        TextToWebProcessor textToWebProcessor = new TextToWebProcessor(processRequest)
+        List<TopicMergeReport> reports = textToWebProcessor.exportToHtml()
+        return render("document-report", [reports: reports])
     }
 
     String exportHtml() {
