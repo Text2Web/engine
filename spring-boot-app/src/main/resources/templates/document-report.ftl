@@ -33,7 +33,7 @@
                         </thead>
                         <tbody>
                         <tbody>
-                        <#list reports as key, report>
+                        <#list reports as report>
                             <tr>
                                 <td>${ report.status?default("") }</td>
                                 <td>${ report.path?default("") }</td>

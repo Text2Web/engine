@@ -20,7 +20,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link <#if currentActive == "document-report" >active</#if>" href="/text2web-manage/document-report">
+                <a class="nav-link <#if currentActive == "document-export" >active</#if>" href="/text2web-manage/document-export">
                     Export Document
                 </a>
             </li>
