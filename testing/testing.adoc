@@ -1,0 +1,6 @@
+. Export
+.. Change doc/yml/static file
+... 3 depth
+... Change directory
+... Rename directory
+... Delete doc

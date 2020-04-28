@@ -51,6 +51,7 @@ class ManagementService {
                 return "Nothing for update!."
             }
         } catch (Exception e) {
+            e.printStackTrace()
             return e.getMessage()
         }
         return "Successfully Merge Descriptor"
