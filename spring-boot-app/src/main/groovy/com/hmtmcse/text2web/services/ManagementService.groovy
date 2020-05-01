@@ -58,10 +58,10 @@ class ManagementService {
     }
 
 
-    String documentExport() {
+    String documentExport(Boolean isForce) {
         ProcessRequest processRequest = new ProcessRequest()
         TextToWebProcessor textToWebProcessor = new TextToWebProcessor(processRequest)
-        List<TopicMergeReport> reports = textToWebProcessor.exportToHtml()
+        List<TopicMergeReport> reports = textToWebProcessor.exportToHtml(isForce)
         return render("document-report", [reports: reports])
     }
 

@@ -49,8 +49,8 @@ class ManagementController {
 
     @RequestMapping(value = ["/document-export"])
     @ResponseBody
-    String documentExport() {
-        return managementService.documentExport()
+    String documentExport(@RequestParam(defaultValue = "false") Boolean isForce) {
+        return managementService.documentExport(isForce)
     }
 
     @RequestMapping(value = ["/export-html"],  method = RequestMethod.POST)
