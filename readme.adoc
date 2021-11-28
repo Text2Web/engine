@@ -1,2 +1,4 @@
 = Bismillah (s)
 
+/bin/bash gradlew clean && /bin/bash gradlew build
+
