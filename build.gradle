@@ -3,7 +3,6 @@ buildscript {
         mavenLocal()
         mavenCentral()
         jcenter()
-        maven { url "https://dl.bintray.com/hmtmcse/maven/" }
         maven { url "https://repo.maven.apache.org/maven2/" }
     }
     dependencies {
@@ -23,7 +22,6 @@ allprojects {
         mavenLocal()
         mavenCentral()
         jcenter()
-        maven { url "https://dl.bintray.com/hmtmcse/maven/" }
         maven { url "https://repo.maven.apache.org/maven2/" }
     }
 
